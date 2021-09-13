@@ -1,5 +1,7 @@
 {
     "name": "deepdiver/homoglyph-detector",
+    "description": "Detect banned words even if soft-hyphened and using confusable characters",
+    "license": "MIT",
     "type": "library",
     "autoload": {
         "psr-4": {

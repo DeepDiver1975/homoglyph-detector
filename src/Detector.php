@@ -4,7 +4,6 @@ namespace Homoglyph;
 
 class Detector
 {
-    // Builds a search function that checks for homoglyphs of the following characters => abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-.
     public function search(string $inputText, array $targetWords): array
     {
         # remove soft hyphen
