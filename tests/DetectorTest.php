@@ -7,6 +7,7 @@ class DetectorTest extends TestCase
 {
     /**
      * @dataProvider provider
+     * @param string[] $targetWords
      */
     public function test(int $expectedCount, string $inputText, array $targetWords): void
     {
@@ -15,6 +16,9 @@ class DetectorTest extends TestCase
         self::assertCount($expectedCount, $matches);
     }
 
+    /**
+     * @return Generator & iterable<string, array>
+     */
     public function provider(): Generator
     {
         yield 'simple' => [

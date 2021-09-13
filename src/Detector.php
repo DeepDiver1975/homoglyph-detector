@@ -4,6 +4,10 @@ namespace Homoglyph;
 
 class Detector
 {
+    /**
+     * @param string[] $targetWords
+     * @return array<int, array<string, int|string>>
+     */
     public function search(string $inputText, array $targetWords): array
     {
         # remove soft hyphen
@@ -17,13 +21,17 @@ class Detector
         return $allMatches;
     }
 
+    /**
+     * @param string[] $symbols
+     * @return array<int, array<string, int|string>>
+     */
     private function checkForWord(array $symbols, string $word): array
     {
         $wordLength = mb_strlen($word);
         $matches = [];
         $i = 0;
         while (count($symbols) >= $wordLength) {
-            if ($this->hasWordAtStart($symbols, $word)){
+            if ($this->hasWordAtStart($symbols, $word)) {
                 $matches[]= [
                     'match'  => implode(array_slice($symbols, $wordLength)),
                     'word'  => $word,
@@ -36,6 +44,9 @@ class Detector
         return $matches;
     }
 
+    /**
+     * @param string[] $symbols
+     */
     private function hasWordAtStart(array $symbols, string $word): bool
     {
         if ($word === '') {
